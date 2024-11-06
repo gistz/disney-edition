@@ -16,7 +16,7 @@ import { debounceTime, Subject, switchMap } from 'rxjs';
         <nav>
           <a (click)="clear()">
             <img
-              src="/assets/logo.png"
+              src="assets/logo.png"
               alt="logo"
             />
           </a>
