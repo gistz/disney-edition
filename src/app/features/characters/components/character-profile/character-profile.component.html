@@ -1,0 +1,43 @@
+@if (!characterDetails) {
+  <article class="medium no-padding center-align middle-align">
+    <div class="padding">
+      <progress class="circle large center-align"></progress>
+    </div>
+  </article>
+} @else {
+  <article class="large-padding no-round disney-light-blue">
+    <div class="grid medium-space">
+      <div class="s12 m6">
+        <img
+          class="responsive"
+          [alt]="characterDetails.name"
+          [src]="characterDetails.imageUrl"
+        />
+      </div>
+      <div class="s12 m6">
+        <div class="padding">
+          <h3>{{ characterDetails.name }}</h3>
+
+          <h6 class="small bottom-margin">
+            Last Updated {{ characterDetails.updatedAt | date: 'medium' }}
+          </h6>
+
+          <app-media-list
+            [mediaItems]="characterDetails.films"
+            [title]="'Featured Films'"
+          ></app-media-list>
+
+          <app-media-list
+            [mediaItems]="characterDetails.shortFilms"
+            [title]="'Short Films'"
+          ></app-media-list>
+
+          <app-media-list
+            [mediaItems]="characterDetails.tvShows"
+            [title]="'TV Shows'"
+          ></app-media-list>
+        </div>
+      </div>
+    </div>
+  </article>
+}

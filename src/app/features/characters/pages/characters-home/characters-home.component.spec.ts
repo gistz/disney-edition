@@ -1,0 +1,22 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { CharactersHomeComponent } from './characters-home.component';
+
+describe('LandingComponent', () => {
+  let component: CharactersHomeComponent;
+  let fixture: ComponentFixture<CharactersHomeComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [CharactersHomeComponent],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(CharactersHomeComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

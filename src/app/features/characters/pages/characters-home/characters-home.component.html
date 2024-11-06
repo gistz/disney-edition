@@ -1,0 +1,15 @@
+<app-characters-list
+  [config]="{ bgColor: disneyClasses.LightBlue }"
+  [characters]="defaultCharacters"
+>
+</app-characters-list>
+
+<app-characters-list
+  [config]="{
+    bgColor: disneyClasses.Blue,
+    title: 'Featured Characters',
+    titleColor: 'white-text',
+  }"
+  [characters]="featuredCharacters | slice: 0 : 4"
+>
+</app-characters-list>

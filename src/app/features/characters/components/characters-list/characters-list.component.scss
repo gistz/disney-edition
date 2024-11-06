@@ -1,0 +1,18 @@
+.films-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Specify the number of lines */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 232px; /* Or any other fixed value */
+  height: 50px; /* This can also help control the visible area */
+  text-align: center;
+}
+
+.container {
+  padding: 4em;
+}
+
+.character-card {
+  min-width: 248px;
+}

@@ -1,0 +1,56 @@
+<div
+  class="container"
+  [ngClass]="config.bgColor"
+>
+  @if (config.title) {
+    <h6
+      class="center-align text-color"
+      [ngClass]="config.titleColor"
+    >
+      {{ config.title }}
+    </h6>
+    <div class="medium-space"></div>
+  }
+
+  <div class="grid">
+    @if (!characters?.length) {
+      @for (item of Array(4); track $index) {
+        <div class="s12 m6 l3">
+          <app-skeleton-character-card></app-skeleton-character-card>
+        </div>
+      }
+    } @else {
+      @for (character of characters; track character?._id) {
+        <div class="s12 m6 l3">
+          <article class="no-padding character-card">
+            <div class="">
+              <img
+                class="responsive large square"
+                width="248"
+                height="248"
+                [src]="character?.imageUrl"
+                alt="{{ character?.name }}"
+              />
+
+              <h6 class="center-align">{{ character?.name }}</h6>
+              <p class="center-align bold top-margin">Featured Films</p>
+              <p class="center films-text">
+                {{ character?.films?.slice(0, 4)?.join(', ') }}
+              </p>
+              <nav class="center-align top-margin">
+                <h6 class="small bold">
+                  <a
+                    class="underline link"
+                    [routerLink]="['/character', character._id]"
+                    >View Profile</a
+                  >
+                </h6>
+              </nav>
+              <div class="large-space"></div>
+            </div>
+          </article>
+        </div>
+      }
+    }
+  </div>
+</div>

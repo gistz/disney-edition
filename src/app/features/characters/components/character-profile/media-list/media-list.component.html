@@ -1,0 +1,9 @@
+@if (mediaItems?.length) {
+  <h5 class="small small-margin">{{ title }}</h5>
+  <ul>
+    @for (media of mediaItems; track $index) {
+      <li>{{ media }}</li>
+    }
+  </ul>
+  <div class="large-space"></div>
+}

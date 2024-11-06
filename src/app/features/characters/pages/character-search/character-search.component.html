@@ -1,0 +1,29 @@
+@if ((searchedCharacters$ | async) && searchCount) {
+  <app-characters-list
+    [config]="{
+      bgColor: disneyClasses.LightBlue,
+      title: 'Search Results - ' + searchName,
+    }"
+    [characters]="searchedCharacters$ | async | slice: 0 : 8"
+  >
+  </app-characters-list>
+} @else {
+  <article class="medium no-padding center-align middle-align">
+    <div class="padding">
+      <h4>
+        Zero Search Results -
+        <span class="bold left-margin">{{ searchName }}</span>
+      </h4>
+    </div>
+  </article>
+}
+
+<app-characters-list
+  [config]="{
+    bgColor: disneyClasses.Blue,
+    title: 'Featured Characters',
+    titleColor: 'white-text',
+  }"
+  [characters]="featuredCharacters | slice: 0 : 4"
+>
+</app-characters-list>
