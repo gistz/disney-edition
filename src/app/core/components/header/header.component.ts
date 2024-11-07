@@ -37,8 +37,11 @@ import { debounceTime, Subject, switchMap } from 'rxjs';
             }
           </div>
 
-          <button class="circle extra transparent">
-            <i class="extra">account_circle</i>
+          <button
+            class="circle extra disney-blue"
+            [routerLink]="['user']"
+          >
+            <i class="extra">person</i>
           </button>
         </nav>
       </header>

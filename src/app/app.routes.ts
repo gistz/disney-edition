@@ -4,6 +4,7 @@ import { CharacterDetailsComponent } from './features/characters/pages/character
 import { FeaturedCharactersResolver } from './features/characters/services/featured-character.resolver';
 import { DefaultCharactersResolver } from './features/characters/services/default-characters.resolver';
 import { CharacterSearchComponent } from './features/characters/pages/character-search/character-search.component';
+import { UserProfileComponent } from './features/users/pages/user-profile/user-profile.component';
 
 export const routes: Routes = [
   {
@@ -27,5 +28,10 @@ export const routes: Routes = [
     resolve: {
       featuredCharacters: FeaturedCharactersResolver,
     },
+  },
+
+  {
+    path: 'user',
+    component: UserProfileComponent,
   },
 ];

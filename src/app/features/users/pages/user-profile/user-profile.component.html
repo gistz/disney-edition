@@ -1,0 +1,195 @@
+<article
+  class="extra extra-pad center-align left-align disney-light-blue no-border no-elevate no-round"
+>
+  <div class="grid">
+    <div class="m8 l8 s12">
+      @if (isEditing) {
+        <form
+          [formGroup]="userProfileForm"
+          (ngSubmit)="onSubmit()"
+        >
+          <input
+            type="hidden"
+            formControlName="lastUpdated"
+          />
+
+          <div class="container">
+            <div class="row">
+              <div class="max">
+                <div class="field border label max">
+                  <input
+                    id="firstName"
+                    autofocus
+                    class="input"
+                    type="text"
+                    formControlName="firstName"
+                    placeholder=" "
+                  />
+                  <label for="firstName"
+                    >First Name
+                    <span class="red-text large-text">*</span></label
+                  >
+                </div>
+              </div>
+              <div class="max">
+                <div class="field border label max">
+                  <input
+                    id="lastName"
+                    class="input"
+                    type="text"
+                    formControlName="lastName"
+                    placeholder=" "
+                  />
+                  <label for="lastName"
+                    >Last Name <span class="red-text large-text">*</span></label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="field label border max">
+                <input
+                  id="birthDate"
+                  class="input"
+                  type="date"
+                  formControlName="birthDate"
+                  placeholder=" "
+                />
+                <label for="birthDate"
+                  >Birth Day <span class="red-text large-text">*</span></label
+                >
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="max">
+                <div class="field border label max">
+                  <input
+                    id="city"
+                    class="input"
+                    type="text"
+                    formControlName="city"
+                    placeholder=" "
+                  />
+                  <label for="city">City</label>
+                </div>
+              </div>
+              <div class="max">
+                <div class="field border label max">
+                  <select
+                    formControlName="state"
+                    id="state"
+                    class="input"
+                  >
+                    <option
+                      value=""
+                      disabled
+                    >
+                      Select a State
+                    </option>
+                    @for (state of statesList; track state.id) {
+                      <option [value]="state.id">{{ state.name }}</option>
+                    }
+                  </select>
+                  <label for="state">Select State</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="max">
+                <div class="field border label max">
+                  <input
+                    id="favChar"
+                    class="input"
+                    type="text"
+                    formControlName="favChar"
+                    placeholder=" "
+                  />
+                  <label for="favChar">Favorite Disney Character</label>
+                </div>
+              </div>
+              <div class="max">
+                <div class="field border label max">
+                  <input
+                    id="favMovie"
+                    class="input"
+                    type="text"
+                    formControlName="favMovie"
+                    placeholder=" "
+                  />
+                  <label for="favMovie">Favorite Disney Movie</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="max">
+                <div class="field border label max">
+                  <select
+                    formControlName="favDisneyLand"
+                    id="favDisneyLand"
+                  >
+                    <option
+                      value=""
+                      disabled
+                    >
+                      Select a Disneyland
+                    </option>
+                    @for (park of disneyParks; track park.id) {
+                      <option [value]="park.name">{{ park.name }}</option>
+                    }
+                  </select>
+                  <label for="favDisneyLand">Favorite Disneyland</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <button
+                [disabled]="userProfileForm.invalid"
+                class="extra small-elevate small-round disney-blue left-align"
+              >
+                Update Profile
+              </button>
+              <button
+                type="button"
+                (click)="onCancel()"
+                class="border small-round extra blue-grey-text bold small-elevate"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </form>
+      }
+
+      @if (!isEditing) {
+        @if (userProfile) {
+          <app-user-readonly-details
+            [userProfile]="userProfile"
+          ></app-user-readonly-details>
+
+          <div class="row">
+            <button
+              (click)="toggleEdit()"
+              class="extra small-elevate small-round disney-blue left-align"
+            >
+              Edit Profile
+            </button>
+          </div>
+        } @else {
+          <div class="row">
+            <button
+              (click)="toggleEdit()"
+              class="extra small-elevate small-round disney-blue left-align"
+            >
+              Create Profile
+            </button>
+          </div>
+        }
+      }
+    </div>
+  </div>
+</article>

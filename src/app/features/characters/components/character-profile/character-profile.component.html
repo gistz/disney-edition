@@ -5,16 +5,16 @@
     </div>
   </article>
 } @else {
-  <article class="large-padding no-round disney-light-blue">
+  <article class="extra-pad no-round disney-light-blue">
     <div class="grid medium-space">
-      <div class="s12 m5">
+      <div class="s12 m5 l5">
         <img
           class="responsive main-image"
           [alt]="characterDetails.name"
           [src]="characterDetails.imageUrl"
         />
       </div>
-      <div class="s12 m7">
+      <div class="s12 m7 l7">
         <div class="padding">
           <h3>{{ characterDetails.name }}</h3>
 
@@ -37,11 +37,12 @@
             [title]="'TV Shows'"
           ></app-media-list>
 
-          <a class="button extra small-elevate small-round disney-blue"
-             [href]="characterDetails.sourceUrl">
+          <a
+            class="button extra small-elevate small-round disney-blue"
+            [href]="characterDetails.sourceUrl"
+          >
             Explore more Character Details
           </a>
-
         </div>
       </div>
     </div>

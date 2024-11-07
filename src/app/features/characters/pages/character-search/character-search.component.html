@@ -7,7 +7,7 @@
     [characters]="searchedCharacters$ | async | slice: 0 : 8"
   >
   </app-characters-list>
-} @else {
+} @else if (searchCount === 0) {
   <article class="medium no-padding center-align middle-align">
     <div class="padding">
       <h4>

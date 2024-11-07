@@ -1,0 +1,48 @@
+@if (userProfile) {
+  <div class="row">
+    <h3>{{ userProfile.firstName }} {{ userProfile.lastName }}</h3>
+  </div>
+  <div class="row small-text tiny-margin top-margin">
+    Last Updated {{ userProfile.lastUpdated | date }}
+  </div>
+  <div class="row">
+    <h6>Age: {{ userProfile.birthDate | age }}</h6>
+  </div>
+
+  @if (userProfile.state || userProfile.city) {
+    <div class="row">
+      <h6>
+        Location:
+        @if (userProfile.city) {
+          {{ userProfile.city }}
+          @if (userProfile.state) {
+            ,
+          }
+        }
+        @if (userProfile.state) {
+          {{ userProfile.state }}
+        }
+      </h6>
+    </div>
+  }
+
+  @if (userProfile.favChar) {
+    <div class="row">
+      <h6>Favorite Disney Character: {{ userProfile.favChar }}</h6>
+    </div>
+  }
+
+  @if (userProfile.favMovie) {
+    <div class="row">
+      <h6>Favorite Disney Movie: {{ userProfile.favMovie }}</h6>
+    </div>
+  }
+
+  @if (userProfile.favDisneyLand) {
+    <div class="row">
+      <h6>Favorite Disneyland: {{ userProfile.favDisneyLand }}</h6>
+    </div>
+  }
+
+  <div class="medium-space"></div>
+}
