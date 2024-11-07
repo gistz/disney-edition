@@ -15,8 +15,8 @@ export const defaultCharacters: Character[] = [
 ];
 
 export const featuredCharacters: Character[] = [
-  { id: 3347, name: 'Jafar' },
-  { id: 3389, name: 'Jasmine' },
-  { id: 156, name: 'Aladdin' },
-  { id: 25, name: 'Abu' },
+  { id: 571, name: 'Belle' },
+  { id: 544, name: 'Beast' },
+  { id: 4703, name: 'Mickey' },
+  { id: 1947, name: 'Donald' },
 ];
