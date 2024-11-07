@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import { UserProfile } from '../../models/user-profile.interface';
 import {
   FormControl,
@@ -17,7 +17,7 @@ import { UserReadonlyDetailsComponent } from '../../components/user-readonly-det
   imports: [ReactiveFormsModule, UserReadonlyDetailsComponent],
   styleUrls: ['./user-profile.component.scss'],
 })
-export class UserProfileComponent implements OnInit {
+export class UserProfileComponent implements OnInit,AfterViewInit {
   userProfileForm: FormGroup;
   userProfile: UserProfile | undefined;
   disneyParks = disneyParks;
@@ -30,6 +30,19 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.populateFormFromLocalStorage();
+  }
+
+  ngAfterViewInit() {
+    this.focusInput()
+  }
+
+  focusInput():void{
+    setTimeout(() => {
+      const element = document.getElementById('firstName') as HTMLInputElement;
+      if (element) {
+        element.focus();
+      }
+    }, 0);
   }
 
   initializeForm() {
@@ -70,5 +83,8 @@ export class UserProfileComponent implements OnInit {
 
   toggleEdit(): void {
     this.isEditing = !this.isEditing;
+    if(this.isEditing){
+      this.focusInput()
+    }
   }
 }

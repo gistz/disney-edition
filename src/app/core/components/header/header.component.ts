@@ -24,6 +24,7 @@ import { debounceTime, Subject, switchMap } from 'rxjs';
           <div class="field max round border fill small margin ">
             <input
               type="text"
+              autofocus
               placeholder="Find a character"
               [(ngModel)]="searchQuery"
               (ngModelChange)="onSearchChange()"
